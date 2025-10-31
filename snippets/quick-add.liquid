@@ -69,8 +69,17 @@
     on:submit="/handleSubmit"
     class="
       quick-add__product-form-component
+      {% if template contains "collection" %}
+        quick-add__product-form-component--multi-option
+      {% else %}
       {% if product.options.size == 1 %} quick-add__product-form-component--single-option {% else %} quick-add__product-form-component--multi-option {% endif %}
+
+      {% endif %}
+       {% if template contains "collection" %}
+        quick-add__product-form-component--multi-variant
+       {% else %}
       {% if product.variants.size == 1 %} quick-add__product-form-component--single-variant {% else %} quick-add__product-form-component--multi-variant {% endif %}
+      {% endif %}
     "
   >
     <div
@@ -95,6 +104,31 @@
         name="quantity"
         value="{% if variant_to_use.quantity_rule.min %}{{ variant_to_use.quantity_rule.min }}{% else %}1{% endif %}"
       >
+
+      {%- if template contains "collection" -%}
+
+         <button
+          class="button quick-add__button quick-add__button--choose"
+          {% comment %} type="submit" is the default, so we explicitly set it to "button" to prevent the ProductFormComponent.handleSubmit from being triggered {% endcomment %}
+          type="button"
+          name="add"
+          on:click="quick-add-component/handleClick"
+        >
+          <span
+            class="add-to-cart-text"
+          >
+            <span
+              class="svg-wrapper add-to-cart-icon"
+            >
+              {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+            </span>
+            <span class="add-to-cart-text__content is-visually-hidden-mobile">
+              {{ add_to_cart_text }}
+            </span>
+          </span>
+        </button>
+
+      {%- else -%}
       {% comment %} If there is one variant option but it's swatches or if it's a single variant product, then use add to cart button {% endcomment %}
       {%- if product.variants.size == 1 or product.options.size == 1 -%}
         {% render 'add-to-cart-button',
@@ -127,6 +161,8 @@
           </span>
         </button>
       {%- endif -%}
+
+       {%- endif -%}
     {%- endform -%}
   </product-form-component>
 </quick-add-component>

@@ -189,8 +189,14 @@ export default class VariantPicker extends Component {
     const params = [];
     const viewParamValue = getViewParameterValue();
 
+
     // preserve view parameter, if it exists, for alternative product view testing
     if (viewParamValue) params.push(`view=${viewParamValue}`);
+
+      if(selectedOption.closest(".collection-quick-view-dialog")) {
+      params.push(`view=quick-view`);
+    }
+
 
     if (this.selectedOptionsValues.length && !source) {
       params.push(`option_values=${this.selectedOptionsValues.join(',')}`);
@@ -209,6 +215,7 @@ export default class VariantPicker extends Component {
       }
       return `${productUrl}?section_id=section-rendering-product-card&${params.join('&')}`;
     }
+
     return `${productUrl}?${params.join('&')}`;
   }
 
@@ -249,6 +256,36 @@ export default class VariantPicker extends Component {
             );
           }
         }
+
+        let mediaGalleryElement = document.querySelector(".quick-view-media-gallery.swiper");
+
+
+        if(mediaGalleryElement) {
+              new Swiper(mediaGalleryElement, {
+              slidesPerView: 1,
+              spaceBetween: 10,
+              loop: true,
+              grabCursor: true,
+              autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+              },
+              allowTouchMove: true,
+              navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+              },
+              pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+              },
+              });
+
+              mediaGalleryElement.classList.add('swiper-initialized');
+            
+        }
+        
+
       })
       .catch((error) => {
         if (error.name === 'AbortError') {

@@ -356,9 +356,11 @@
     "product_grid_main": "Product grid",
     "product_image": "Product image",
     "product_information": "Product information",
+    "variant_information": "Variant information",
     "product_list": "Featured collection",
     "product_list_button": "View all button",
     "product_media": "Product media",
+    "variant_media": "Variant media",
     "product_price": "Price",
     "product_recommendations": "Recommended products",
     "product_review_stars": "Review stars",
@@ -718,6 +720,7 @@
     "youtube": "YouTube"
   },
   "settings": {
+    "collection_product_cards": "Collection product cards",
     "accordion": "Accordion",
     "account": "Account",
     "alignment": "Alignment",
@@ -1007,6 +1010,10 @@
     "quick_add": "Quick add",
     // Color scheme for quick add buttons on product cards
     "quick_add_colors": "Quick add colors",
+
+     "quick_add_button_placement": "Quick Add Button Placement",
+    "quick_add_button_placement_info": "Choose where to position the Quick Add button on product cards",
+    
     "ratio": "Ratio",
     "read_only": "Read only",
     "reflection_opacity": "Reflection opacity",

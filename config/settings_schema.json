@@ -2081,12 +2081,62 @@
         "default": false,
         "visible_if": "{{ settings.quick_add == true }}"
       },
+    
       {
         "type": "color_scheme",
         "id": "quick_add_color_scheme",
         "label": "t:settings.quick_add_colors",
         "default": "scheme-1",
         "visible_if": "{{ settings.quick_add == true }}"
+      },
+        {
+        "type": "header",
+        "content": "t:settings.collection_product_cards"
+      },
+
+            {
+        "type": "checkbox",
+        "id": "quick_add_collection",
+        "label": "t:settings.quick_add",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_quick_add_collection",
+        "label": "t:settings.mobile_quick_add",
+        "default": false,
+        "visible_if": "{{ settings.quick_add_collection == true }}"
+      },
+
+         {
+        "type": "select",
+        "id": "quick_add_placement",
+        "label": "t:settings.quick_add_button_placement",
+        "visible_if": "{{ settings.quick_add_collection == true }}",
+        "options": [
+          {
+            "value": "top-left",
+            "label": "t:options.top_left"
+          },
+          {
+            "value": "top-right",
+            "label": "t:options.top_right"
+          },
+          {
+            "value": "bottom-left",
+            "label": "t:options.bottom_left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "t:options.bottom_right"
+          },
+          {
+            "value": "center",
+            "label": "t:options.center"
+          }
+        ],
+        "default": "bottom-right",
+        "info": "t:settings.quick_add_button_placement_info"
       },
       {
         "type": "header",

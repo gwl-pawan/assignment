@@ -111,11 +111,29 @@
   type="module"
   fetchpriority="low"
 ></script>
+
+{%- if template contains "collection" -%}
+
 <script
-  src="{{ 'quick-add.js' | asset_url }}"
+  src="{{ 'collection_quick_view_popup.js' | asset_url }}"
   type="module"
   fetchpriority="low"
 ></script>
+
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+
+{%- else -%}
+
+ <script
+  src="{{ 'quick-add.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script> 
+
+{%- endif -%}
+
+
 {% if settings.show_add_discount_code %}
   <script
     src="{{ 'cart-discount.js' | asset_url }}"

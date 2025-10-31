@@ -21,6 +21,20 @@
 {% endstyle %}
 
 {% liquid
+
+  if template contains "collection"
+
+    assign has_quick_add = false
+  if settings.quick_add_collection and product.available
+    assign has_quick_add = true
+  endif
+
+  assign has_mobile_quick_add = false
+  if has_quick_add and settings.mobile_quick_add_collection
+    assign has_mobile_quick_add = true
+  endif
+
+  else 
   assign has_quick_add = false
   if settings.quick_add and product.available
     assign has_quick_add = true
@@ -29,6 +43,8 @@
   assign has_mobile_quick_add = false
   if has_quick_add and settings.mobile_quick_add
     assign has_mobile_quick_add = true
+  endif
+
   endif
 
   assign product_card_id = 'product-card-link-' | append: block.id | append: '-' | append: product.id
@@ -96,7 +112,7 @@
   >
 {%- endif -%}
 <product-card
-  class="product-card"
+  class="product-card {%  if template contains 'collection' %} collection-product-card quick-add-placement-{{settings.quick_add_placement}} {% endif %}"
   data-product-id="{{ product.id }}"
   data-product-variants-size="{{ product.variants.size }}"
   id="product-card-{{ block.id }}"
