@@ -1,0 +1,221 @@
+.quick-add-placement-bottom-left
+  .quick-add__product-form-component
+  .shopify-product-form {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.quick-add-placement-bottom-right
+  .quick-add__product-form-component
+  .shopify-product-form {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.quick-add-placement-top-left
+  .quick-add__product-form-component
+  .shopify-product-form {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.quick-add-placement-top-right
+  .quick-add__product-form-component
+  .shopify-product-form {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.quick-add-placement-center
+  .quick-add__product-form-component
+  .shopify-product-form {
+  justify-content: center;
+  align-items: center;
+}
+.quick-view-section .quick-add-modal {
+  max-width: var(--quick-view-max-width, 1200px);
+  width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  max-width: 400px;
+  margin-top: 40px;
+}
+
+.quick-view-section .quick-add-modal__content {
+  padding: var(--padding-md);
+  overflow-y: auto;
+  max-height: calc(90vh - 40px);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+}
+
+.quick-view-section .accelerated-checkout-block {
+  display: none;
+}
+
+.quick-view-section .quick-add-modal__content.single-column {
+  flex-direction: column;
+}
+
+.quick-add-modal__close {
+  position: absolute;
+
+  z-index: 10;
+}
+
+.quick-view-container {
+  display: grid;
+  gap: var(--gap, 24px);
+}
+
+.quick-view-column {
+  width: 100%;
+  max-width: 100%;
+}
+
+.quick-view-container--two-column {
+  grid-template-columns: 1fr 1fr;
+}
+
+.quick-view-container--single-column {
+  grid-template-columns: 1fr;
+}
+
+.quick-view-section .quick-view-column--media {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 240px;
+  margin-bottom: 16px;
+}
+
+.quick-view-section .quick-view-block h1 {
+  font-size: inherit;
+}
+
+.quick-view-column--details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quick-view-block {
+  width: 100%;
+}
+
+.quick-view-block--title h1,
+.quick-view-block--title h2 {
+  margin: 0;
+}
+
+.quick-view-section
+  .quick-add-modal__content
+  .product-information__media
+  media-gallery {
+  position: relative;
+  max-height: 240px;
+  pointer-events: auto;
+}
+
+.quick-add-modal__content .media-gallery__grid {
+  max-height: 240px;
+}
+
+.quick-view-section .price {
+  user-select: none;
+  font-size: inherit;
+}
+
+.quick-view-block--description {
+  line-height: 1.6;
+}
+
+.quick-view-block--view-details {
+  margin-top: auto;
+}
+
+.view-product-details-link {
+  text-decoration: underline;
+}
+
+.quick-view-media-gallery .swiper-button-next svg {
+  width: 10px;
+  height: 10px;
+}
+
+.quick-view-media-gallery .swiper-slide {
+  min-height: 240px;
+  max-height: 240px;
+}
+
+.quick-view-media-gallery .swiper-button-prev svg {
+  transform: rotate(180deg);
+  width: 10px;
+  height: 10px;
+}
+
+.quick-view-media-gallery .swiper-button-next,
+.quick-view-media-gallery .swiper-button-prev {
+  background: #fff;
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+}
+
+.quick-view-media-gallery .swiper-pagination .swiper-pagination-bullet {
+  margin-right: 5px;
+}
+
+.quick-view-media-gallery
+  .swiper-pagination
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.quick-view-media-gallery .swiper-button-next svg path,
+.quick-view-media-gallery .swiper-button-prev svg path {
+  stroke: #000;
+}
+
+.quick-add-modal {
+  opacity: 0;
+  visibility: hidden;
+}
+.quick-add-modal[open] {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (min-width: 750px) {
+  .quick-view-section .quick-add-modal__content .product-information__media {
+    position: static;
+    overflow: hidden;
+    max-height: 240px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .quick-add-modal {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .quick-add-modal__content {
+    max-height: calc(100vh - 60px);
+  }
+
+  .quick-view-container--two-column {
+    grid-template-columns: 1fr;
+  }
+  .quick-view-section .quick-add-modal {
+    margin: 40px auto auto;
+  }
+}
+
+[data-show-media="false"] .quick-view-block--media {
+  display: none;
+}
